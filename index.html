@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>C-9 Drywall Practice Quiz</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <header class="app-header">
+    <div>
+      <p class="eyebrow">California C-9 Drywall Practice</p>
+      <h1>C-9 Drywall Quiz Trainer</h1>
+      <p class="subtitle">English + Spanish practice for List 1 and List 2. Instant feedback, explanations, and missed-question review.</p>
+    </div>
+  </header>
+
+  <main class="app-shell">
+    <section class="setup-card" id="setupCard">
+      <h2>Start practice</h2>
+      <div class="setup-grid">
+        <label>
+          Language
+          <select id="languageSelect">
+            <option value="en">English</option>
+            <option value="es">Español</option>
+          </select>
+        </label>
+
+        <label>
+          Question set
+          <select id="setSelect">
+            <option value="list1">List 1 — Found / public example questions</option>
+            <option value="list2">List 2 — Generated practice questions</option>
+            <option value="mixed">Mixed — List 1 + List 2</option>
+          </select>
+        </label>
+
+        <label>
+          Mode
+          <select id="modeSelect">
+            <option value="practice">Practice — show right/wrong immediately</option>
+            <option value="test">Test — show score at the end</option>
+          </select>
+        </label>
+
+        <label>
+          Question order
+          <select id="orderSelect">
+            <option value="normal">Normal order</option>
+            <option value="shuffle">Shuffle questions</option>
+          </select>
+        </label>
+      </div>
+      <button id="startBtn" class="primary-btn">Start quiz</button>
+      <p class="setup-note">No login, no database, no server. This works locally or on GitHub Pages.</p>
+    </section>
+
+    <section class="quiz-layout hidden" id="quizLayout">
+      <div class="quiz-main">
+        <div class="top-row">
+          <div>
+            <p class="progress-label" id="progressLabel">Question 1 of 10</p>
+            <div class="progress-bar"><span id="progressFill"></span></div>
+          </div>
+          <div class="score-pill" id="scorePill">Score: 0 correct</div>
+        </div>
+
+        <article class="question-card">
+          <p class="section-label" id="sectionLabel"></p>
+          <h2 id="questionText"></h2>
+          <div id="answers" class="answers"></div>
+        </article>
+
+        <div class="actions">
+          <button id="prevBtn" class="secondary-btn">Back</button>
+          <button id="nextBtn" class="primary-btn">Next</button>
+          <button id="restartBtn" class="ghost-btn">Restart</button>
+        </div>
+      </div>
+
+      <aside class="explanation-panel" id="explanationPanel">
+        <h3>Explanation</h3>
+        <p id="statusText" class="status-muted">Choose an answer to see feedback.</p>
+        <div id="explanationText" class="explanation-text"></div>
+      </aside>
+    </section>
+
+    <section class="results-card hidden" id="resultsCard">
+      <h2 id="resultsTitle">Results</h2>
+      <p id="resultsSummary"></p>
+      <div class="result-actions">
+        <button id="reviewMissedBtn" class="primary-btn">Review missed questions</button>
+        <button id="newQuizBtn" class="secondary-btn">Start over</button>
+      </div>
+      <div id="missedList" class="missed-list"></div>
+    </section>
+  </main>
+
+  <footer class="footer-note">
+    Practice content is for study only. It is not official CSLB exam content and does not guarantee exam questions.
+  </footer>
+
+  <script src="questions.js"></script>
+  <script src="script.js"></script>
+</body>
+</html>
